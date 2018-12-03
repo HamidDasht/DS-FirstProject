@@ -24,10 +24,11 @@ Book LinkedList::deleteBook(QString name)
             j->next = i->next;
             i->next = nullptr;
             QString name = i->book.name;
-            int date = i->book.date;
+            int price = i->book.price;
             size--;
             delete i;
-            return Book(name,"", date, 0);
+            // Book is sold. Only it's price and name are important
+            return Book(name,"", 0, price);
         }
 
         j = j->next;
@@ -36,6 +37,49 @@ Book LinkedList::deleteBook(QString name)
 
     // Not Found.
     return Book("","", -1,0);
+}
+
+QDataStream &operator>>(QDataStream &stream, LinkedList *list)
+{
+    QByteArray size;
+    stream >> size;
+
+    QByteArray date;
+    QByteArray price;
+    QString name;
+    QString writer;
+    qDebug() << size << "\n";
+    list->size = size.toInt();
+    for (int i = list->size; i > 0; i--)
+    {
+        stream >> name;
+        stream >> writer;
+        stream >> date;
+        stream >> price;
+        qDebug() << name << "\n";
+        list->insertBook(Book(name,writer,date.toInt(),price.toInt()));
+    }
+    return stream;
+}
+
+QDataStream &operator<<(QDataStream &stream, const LinkedList *list)
+{
+    QByteArray size;
+    size.setNum(list->size);
+    stream << size ;
+    QByteArray date;
+    QByteArray price;
+    for (node* i = list->tail->next->next; i != list->tail->next; i = i->next)
+    {
+        stream << i->book.name;
+        stream << i->book.writer;
+        date.setNum(i->book.date);
+        stream << date ;
+        price.setNum(i->book.price);
+        stream << price;
+
+    }
+    return stream;
 }
 
 void LinkedList::printList()

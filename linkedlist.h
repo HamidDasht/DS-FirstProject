@@ -2,6 +2,8 @@
 #define LINKEDLIST_H
 #include <QDebug>
 #include <book.h>
+#include <QDataStream>
+
 
 struct node
 {
@@ -20,6 +22,8 @@ public:
     LinkedList();
     void insertBook(Book book);
     Book deleteBook(QString name);
+    friend QDataStream& operator<<(QDataStream& stream, const LinkedList* list);
+    friend QDataStream& operator>>(QDataStream& stream, LinkedList* list);
 
     int length()
     {

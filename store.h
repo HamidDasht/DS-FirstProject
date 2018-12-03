@@ -1,16 +1,29 @@
 #ifndef STORE_H
 #define STORE_H
-
+#include <QObject>
 #include <QMainWindow>
+#include <linkedlist.h>
+#include <QDir>
+#include <QFile>
+#include <QIODevice>
+#include <QDataStream>
 
-class Store : public QMainWindow
+class Store : public QObject
 {
-    Q_OBJECT
 public:
-    explicit Store(QWidget *parent = nullptr);
+    Store();
+    void addCustomer(QString name);
+    void addBook();
+    void readFile();
+    void writeFile();
 
+
+
+    void printBooks();
+private:
+    void deleteBook(QString name);
+    LinkedList books;
 signals:
-
 public slots:
 };
 

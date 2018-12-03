@@ -6,6 +6,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    QObject::connect(ui->AddBook,&QPushButton::clicked, &this->store, &Store::addBook);
 }
 
 MainWindow::~MainWindow()

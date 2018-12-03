@@ -2,7 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
+#include <store.h>
+#include <QPushButton>
 namespace Ui {
 class MainWindow;
 }
@@ -16,6 +17,7 @@ public:
     ~MainWindow();
 
 private:
+    Store store;
     Ui::MainWindow *ui;
 };
 

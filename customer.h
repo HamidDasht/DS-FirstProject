@@ -6,6 +6,8 @@ class Customer
 {
 public:
     Customer();
+private:
+
 };
 
 #endif // CUSTOMER_H

@@ -1,6 +1,6 @@
 #include <book.h>
 
-Book::Book(QString name, QString writer, int date, unsigned int price)
+Book::Book(QString name, QString writer, int date, int price)
 {
     this->name = name;
     this->writer = writer;

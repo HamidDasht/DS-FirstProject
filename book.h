@@ -5,11 +5,11 @@
 class Book
 {
 public:
-    Book(QString name, QString writer, int date, unsigned int price);
+    Book(QString name, QString writer, int date, int price);
     Book(const Book& book);
     QString name;
     QString writer;
-    unsigned int price;
+    int price;
     void printBookInfo();
     int date;
 };
