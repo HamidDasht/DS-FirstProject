@@ -7,6 +7,7 @@ class BookItem : public QListWidgetItem
 {
 public:
     BookItem(QListWidget* view);
+    static void remove(QListWidgetItem* item);
 private:
     QString name;
     QString writer;
