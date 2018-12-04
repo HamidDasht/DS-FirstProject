@@ -43,5 +43,4 @@ HEADERS += \
     bookitem.h
 
 FORMS += \
-        mainwindow.ui \
-    store.ui
+        mainwindow.ui
