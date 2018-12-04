@@ -3,7 +3,10 @@
 #include <QDebug>
 #include <book.h>
 #include <QDataStream>
-
+#include <QListWidget>
+#include <QListWidgetItem>
+#include <QLayout>
+#include <bookitem.h>
 
 struct node
 {
@@ -25,6 +28,7 @@ public:
     friend QDataStream& operator<<(QDataStream& stream, const LinkedList* list);
     friend QDataStream& operator>>(QDataStream& stream, LinkedList* list);
 
+    void showList(QListWidget* bookList);
     int length()
     {
         return size;

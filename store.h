@@ -27,22 +27,29 @@ class Store : public QMainWindow
 {
     Q_OBJECT
 public:
+<<<<<<< HEAD
      Store(QWidget *parent = 0);
+=======
+    Store();
+>>>>>>> 54ebbcebfe293f282a9826a983abc38c5a7741d6
     void addCustomer();
     void addBook();
     void readFile();
     void writeFile();
+    //void printBooks();
+    LinkedList books;
 
-
-
-    void printBooks();
+    void printBooks(QListWidget *bookList);
 private:
     void deleteBook(QString name);
+<<<<<<< HEAD
     LinkedList books;
     int turns;
     int latest_turn;
     Ui::Store* ui;
 
+=======
+>>>>>>> 54ebbcebfe293f282a9826a983abc38c5a7741d6
 signals:
     void turn_up();
 

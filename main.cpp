@@ -7,13 +7,13 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     MainWindow w;
     w.show();
-    Store store;
-    store.readFile();
-    store.printBooks();
-   // store.addBook("Ghalee","fdfdfs", 1397,11000);
-   // store.addBook("AdamVaHavva", "fdfdsasd", 1396, 123123);
-   // store.addBook("AdamVaHavva", "fdfdsasd", 1393, 123123);
- //   store.addBook("Zoroo", "31231sda", 1396, 232138774);
+  //  Store store;
+  //  store.readFile();
+    //store.printBooks();
+//    store.books.insertBook(Book("fdfdsfsdfsf","fdfdfs", 1397,11000));
+ //   store.books.insertBook(Book("AdamVaHavva", "fdfdsasd", 1396, 123123));
+  //  store.books.insertBook(Book("AdamVaHavva", "fdfdsasd", 1393, 123123));
+ //   store.books.addBook(Book("Zoroo", "31231sda", 1396, 232138774));
 /*    Book s("Ghalee","fdfdfs", 1397,11000);
     Book b("AdamVaHavva","fdfdsasd", 1394, 123123);
     Book c("Zoroo", "31231sda", 1396, 232138774);
@@ -37,7 +37,10 @@ int main(int argc, char *argv[])
 
     LL.printList();
 */
-  //  store.addBook("AdamVaHavva", "fdfdsasd", 1394, 123123);
-    store.writeFile();
+  //  store.books.insertBook(Book("AdamVaHavva", "fdfdsasd", 1396, 123123));
+   // store.writeFile();
+//    store.books.printList();
+
+  //  w.printBooks();
     return a.exec();
 }

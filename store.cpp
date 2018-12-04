@@ -46,6 +46,11 @@ void Store::addCustomer()
 
 }
 
+void Store::addCustomer()
+{
+
+}
+
 void Store::addBook()
 {
     QDialog dialog;
@@ -147,7 +152,7 @@ void Store::writeFile()
     file.close();
 }
 
-void Store::printBooks()
+void Store::printBooks(QListWidget* bookList)
 {
-    books.printList();
+    books.showList(bookList);
 }
