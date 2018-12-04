@@ -41,4 +41,5 @@ HEADERS += \
     linkedlist.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    store.ui
