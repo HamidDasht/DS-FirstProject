@@ -7,6 +7,13 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     QObject::connect(ui->AddBook,&QPushButton::clicked, &this->store, &Store::addBook);
+    store.readFile();
+    printBooks();
+}
+
+void MainWindow::printBooks()
+{
+    store.printBooks(ui->BookList);
 }
 
 MainWindow::~MainWindow()

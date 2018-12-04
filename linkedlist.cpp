@@ -39,24 +39,41 @@ Book LinkedList::deleteBook(QString name)
     return Book("","", -1,0);
 }
 
+void LinkedList::showList(QListWidget *bookList)
+{
+    bookList->clear();
+    BookItem* bookEntry;
+    node* i = tail->next->next;
+
+    while (i != tail->next)
+    {
+        bookEntry = new BookItem(bookList);
+        bookList->addItem(bookEntry);
+        QString text = (QString("%1 %2 %3 %4")).arg("Name: ",-6).arg(i->book.name,-30).arg("Date: ", -6).arg(i->book.date,-7);
+        bookEntry->setText(text);
+        i = i->next;
+    }
+}
+
 QDataStream &operator>>(QDataStream &stream, LinkedList *list)
 {
     QByteArray size;
     stream >> size;
 
+
     QByteArray date;
     QByteArray price;
     QString name;
     QString writer;
-    qDebug() << size << "\n";
-    list->size = size.toInt();
-    for (int i = list->size; i > 0; i--)
+    qDebug() << size << "     In Size\n";
+    int temp = size.toInt();
+    for (int i = temp; i > 0; i--)
     {
         stream >> name;
         stream >> writer;
         stream >> date;
         stream >> price;
-        qDebug() << name << "\n";
+     //   qDebug() << name << "\n";
         list->insertBook(Book(name,writer,date.toInt(),price.toInt()));
     }
     return stream;
@@ -84,6 +101,7 @@ QDataStream &operator<<(QDataStream &stream, const LinkedList *list)
 
 void LinkedList::printList()
 {
+
     node* i = tail->next->next;
     while (i != tail->next)
     {

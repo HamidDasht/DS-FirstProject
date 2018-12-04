@@ -30,7 +30,8 @@ SOURCES += \
     customer.cpp \
     stack.cpp \
     linkedlist.cpp \
-    book.cpp
+    book.cpp \
+    bookitem.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -38,7 +39,9 @@ HEADERS += \
     book.h \
     customer.h \
     stack.h \
-    linkedlist.h
+    linkedlist.h \
+    bookitem.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    store.ui

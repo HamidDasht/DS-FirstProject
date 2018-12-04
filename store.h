@@ -12,17 +12,16 @@ class Store : public QObject
 {
 public:
     Store();
-    void addCustomer(QString name);
+    void addCustomer();
     void addBook();
     void readFile();
     void writeFile();
+    //void printBooks();
+    LinkedList books;
 
-
-
-    void printBooks();
+    void printBooks(QListWidget *bookList);
 private:
     void deleteBook(QString name);
-    LinkedList books;
 signals:
 public slots:
 };

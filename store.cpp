@@ -5,6 +5,11 @@ Store::Store() : QObject()
 
 }
 
+void Store::addCustomer()
+{
+
+}
+
 void Store::addBook()
 {
     qDebug() << "dsdasdasdsad";
@@ -49,7 +54,7 @@ void Store::writeFile()
     file.close();
 }
 
-void Store::printBooks()
+void Store::printBooks(QListWidget* bookList)
 {
-    books.printList();
+    books.showList(bookList);
 }
