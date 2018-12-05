@@ -16,6 +16,10 @@
 #include <QDialogButtonBox>
 #include <QFormLayout>
 #include "stack.h"
+#include <queue.h>
+#include <QVector>
+#include "customer.h"
+
 
 
 namespace Ui
@@ -27,24 +31,36 @@ class Store : public QMainWindow
 {
     Q_OBJECT
 public:
-\
      Store(QWidget *parent = 0);
+     int turns;
+     int latest_turn;
+
     void addCustomer();
     void addBook();
     void readFile();
     void writeFile();
+    void stack_up(QListWidgetItem* item);
+    void buy_end ();
+
     void printBooks();
 
     void printBooks(QListWidget *bookList);
+
 private:
     void deleteBook(QString name);
     LinkedList books;
-    int turns;
-    int latest_turn;
+    Stack stack;
+    Queue man;
+    Queue women;
+    QVector <Book*> book_vec;
+
+
     Ui::Store* ui;
+
 signals:
-    void bookAdded();
     void turn_up();
+    void books_up();
+
 
 public slots:
 };

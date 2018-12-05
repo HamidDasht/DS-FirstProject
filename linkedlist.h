@@ -18,7 +18,6 @@ struct node
     node* next;
 };
 
-
 class LinkedList
 {
 public:

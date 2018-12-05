@@ -11,9 +11,10 @@ class Customer
     QString name;
     int turn;
     Stack* books;
+    int gender;
 
 public:
-    Customer(QString name, int turn,Stack* books);
+    Customer(QString name, int turn, Stack* books, int gender);
 private:
 
 };

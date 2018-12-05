@@ -6,8 +6,9 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>278</width>
-    <height>554</height>
+    <width>869</width>
+    <height>663</height>
+
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,18 +20,33 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>256</width>
-      <height>501</height>
+      <width>741</width>
+      <height>591</height>
      </rect>
     </property>
    </widget>
+   <widget class="QPushButton" name="end_of_bying">
+    <property name="geometry">
+     <rect>
+      <x>770</x>
+      <y>20</y>
+      <width>93</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>ok</string>
+    </property>
+   </widget>
+
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>278</width>
+     <width>869</width>
+
      <height>26</height>
     </rect>
    </property>

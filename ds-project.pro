@@ -32,6 +32,7 @@ SOURCES += \
     linkedlist.cpp \
     book.cpp \
     bookitem.cpp \
+    queue.cpp
     listdelegate.cpp
 
 HEADERS += \
@@ -42,6 +43,8 @@ HEADERS += \
     stack.h \
     linkedlist.h \
     bookitem.h \
+    queue.h
+
     listdelegate.h
 
 FORMS += \
