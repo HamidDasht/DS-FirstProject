@@ -7,9 +7,13 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     QObject::connect(ui->AddBook,&QPushButton::clicked, &this->store, &Store::addBook);
+    QObject::connect(ui->AddCustomer, &QPushButton::clicked, &this->store, &Store::addCustomer);
+    QObject::connect(&this->store, &Store::turn_up, this, &MainWindow::turns_up);
+    QObject::connect(&this->store,&Store::bookAdded,this,&MainWindow::printBooks);
+
+    ui->BookList->setItemDelegate(new ListDelegate(ui->BookList));
     store.readFile();
     printBooks();
-    QObject::connect(ui->BookList,&QListWidget::itemClicked,&BookItem::remove);
 }
 
 void MainWindow::printBooks()
@@ -20,4 +24,14 @@ void MainWindow::printBooks()
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::turns_up()
+{
+
+}
+
+void MainWindow::closeEvent(QCloseEvent* event)
+{
+    store.writeFile();
 }
