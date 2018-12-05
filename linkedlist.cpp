@@ -47,7 +47,7 @@ void LinkedList::showList(QListWidget *bookList)
 
     while (i != tail->next)
     {
-        bookEntry = new BookItem(bookList);
+        bookEntry = new BookItem(bookList,i->book.name, i->book.writer,i->book.date, i->book.price);
         bookList->addItem(bookEntry);
         QString text = (QString("%1 %2 %3 %4")).arg("Name: ",-6).arg(i->book.name,-30).arg("Date: ", -6).arg(i->book.date,-7);
         bookEntry->setText(text);

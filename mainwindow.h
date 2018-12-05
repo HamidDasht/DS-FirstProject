@@ -14,7 +14,6 @@
 
 namespace Ui {
 class MainWindow;
-class books;
 }
 
 class MainWindow : public QMainWindow
@@ -32,6 +31,7 @@ private:
 
     public slots:
         void turns_up();
+        void book_up();
 };
 
 #endif // MAINWINDOW_H

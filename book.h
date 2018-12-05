@@ -2,6 +2,8 @@
 #define BOOK_H
 #include <QString>
 
+
+
 class Book
 {
 public:
@@ -13,5 +15,6 @@ public:
     void printBookInfo();
     int date;
 };
+
 
 #endif // BOOK_H
