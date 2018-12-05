@@ -33,6 +33,7 @@ SOURCES += \
     book.cpp \
     bookitem.cpp \
     queue.cpp
+    listdelegate.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -43,6 +44,8 @@ HEADERS += \
     linkedlist.h \
     bookitem.h \
     queue.h
+
+    listdelegate.h
 
 FORMS += \
         mainwindow.ui \

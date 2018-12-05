@@ -10,10 +10,12 @@
 #include <QLabel>
 #include <QCheckBox>
 #include <QDialogButtonBox>
+#include <listdelegate.h>
 
 
 namespace Ui {
 class MainWindow;
+class books;
 }
 
 class MainWindow : public QMainWindow
@@ -26,6 +28,7 @@ public:
     ~MainWindow();
 
 private:
+    void closeEvent(QCloseEvent* event);
     Store store;
     Ui::MainWindow *ui;
 

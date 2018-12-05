@@ -8,6 +8,7 @@
     <y>0</y>
     <width>869</width>
     <height>663</height>
+
    </rect>
   </property>
   <property name="windowTitle">
@@ -37,6 +38,7 @@
      <string>ok</string>
     </property>
    </widget>
+
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -44,6 +46,7 @@
      <x>0</x>
      <y>0</y>
      <width>869</width>
+
      <height>26</height>
     </rect>
    </property>

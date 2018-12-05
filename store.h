@@ -21,6 +21,7 @@
 #include "customer.h"
 
 
+
 namespace Ui
 {
     class Store;
@@ -33,12 +34,16 @@ public:
      Store(QWidget *parent = 0);
      int turns;
      int latest_turn;
+
     void addCustomer();
     void addBook();
     void readFile();
     void writeFile();
     void stack_up(QListWidgetItem* item);
     void buy_end ();
+
+    void printBooks();
+
     void printBooks(QListWidget *bookList);
 
 private:
@@ -55,6 +60,7 @@ private:
 signals:
     void turn_up();
     void books_up();
+
 
 public slots:
 };

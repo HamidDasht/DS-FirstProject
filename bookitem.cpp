@@ -1,6 +1,7 @@
 #include "bookitem.h"
 #include <QDebug>
 BookItem::BookItem(QListWidget* view, QString name , QString writer, int date, int price) : QListWidgetItem (view)
+
 {
     setSizeHint(QSize(100,30));
     setBackgroundColor(Qt::darkGray);

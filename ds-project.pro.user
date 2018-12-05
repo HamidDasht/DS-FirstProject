@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<<<<<<< HEAD
 <!-- Written by QtCreator 4.5.1, 2018-12-04T06:26:48. -->
-=======
-<!-- Written by QtCreator 4.7.1, 2018-12-04T17:04:37. -->
->>>>>>> 54ebbcebfe293f282a9826a983abc38c5a7741d6
+
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -1270,6 +1267,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">ds-project</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/Amir/Desktop/bookstore/ds-project.pro</value>
+
     <value type="bool" key="QmakeProjectManager.QmakeRunConfiguration.UseLibrarySearchPath">true</value>
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.CommandLineArguments"></value>
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.ProFile">ds-project.pro</value>

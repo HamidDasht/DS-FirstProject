@@ -44,13 +44,13 @@ void LinkedList::showList(QListWidget *bookList)
     bookList->clear();
     BookItem* bookEntry;
     node* i = tail->next->next;
-
     while (i != tail->next)
     {
         bookEntry = new BookItem(bookList,i->book.name, i->book.writer,i->book.date, i->book.price);
         bookList->addItem(bookEntry);
-        QString text = (QString("%1 %2 %3 %4")).arg("Name: ",-6).arg(i->book.name,-30).arg("Date: ", -6).arg(i->book.date,-7);
-        bookEntry->setText(text);
+        bookEntry->setData(Qt::DisplayRole, QString(" \"%1\" Written By %2").arg(i->book.name).arg(i->book.writer));
+        bookEntry->setData(Qt::UserRole +1, QString(" Publish Date: %1").arg(i->book.date));
+        bookEntry->setData(Qt::DisplayPropertyRole,QString(" Price: %1").arg(i->book.price));
         i = i->next;
     }
 }

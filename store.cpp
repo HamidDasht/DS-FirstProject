@@ -5,6 +5,7 @@ Store::Store(QWidget *parent): QMainWindow(parent),ui(new Ui::Store)
 {
     turns=0;
     latest_turn=0;
+
 }
 
 void Store::addCustomer()
@@ -31,11 +32,13 @@ void Store::addCustomer()
 
     int response;
 
+
     while (1)
     {
         flag=true;
 
          response = dialog.exec();
+
         if( response == QDialog::Accepted)
         {
             name=customer.text();
@@ -45,6 +48,7 @@ void Store::addCustomer()
                     flag=false;
             if (!checkBox->isChecked() && !checkBox2->isChecked())
                     flag=false;
+
         }
 
         if (flag==true)
@@ -88,6 +92,11 @@ void Store::addCustomer()
                Customer custom (name, turn, stk, 0);
                women.push(&custom);
           }
+    int turn=this->latest_turn;
+
+    show();
+
+    emit turn_up();
 
 
         //Customer custom (name, turn, stk);
@@ -157,6 +166,8 @@ void Store::addBook()
         this->books.insertBook(book);
         this->books.printList();
     }
+
+    emit bookAdded();
 
 }
 

@@ -4,6 +4,10 @@
 #include <QString>
 #include <QObject>
 
+#include <QStyledItemDelegate>
+#include <QPainter>
+
+
 class BookItem : public QListWidgetItem
 {
 public:

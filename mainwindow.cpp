@@ -12,6 +12,9 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(&this->store, &Store::books_up, this, &MainWindow::book_up);
 
 
+    QObject::connect(&this->store,&Store::bookAdded,this,&MainWindow::printBooks);
+
+    ui->BookList->setItemDelegate(new ListDelegate(ui->BookList));
     store.readFile();
     printBooks();
 }
@@ -29,6 +32,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::turns_up()
 {
+ 
     int n=++store.turns;
     qDebug()<<store.turns;
     ui->Turns->display(n);
@@ -37,4 +41,11 @@ void MainWindow::turns_up()
 void MainWindow::book_up()
 {
     printBooks();
+
+
+}
+
+void MainWindow::closeEvent(QCloseEvent* event)
+{
+    store.writeFile();
 }
