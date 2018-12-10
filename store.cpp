@@ -4,8 +4,8 @@
 Store::Store(QWidget *parent): QMainWindow(parent),ui(new Ui::Store)
 {
     turns=0;
-    latest_turn=0;
-
+    latest_turn=1;
+    gender=true;
 }
 
 void Store::addCustomer()
@@ -18,9 +18,6 @@ void Store::addCustomer()
     QCheckBox* checkBox2=new QCheckBox("famale",&dialog);
     form.addWidget(checkBox);
     form.addWidget(checkBox2);
-
-
-
 
     QDialogButtonBox* button = new QDialogButtonBox(QDialogButtonBox::Ok);
     QObject::connect(button,SIGNAL(accepted()),&dialog,SLOT(accept()));
@@ -58,48 +55,46 @@ void Store::addCustomer()
     if (response==QDialog::Accepted)
     {
 
-
-
      int turn=this->latest_turn;
      setGeometry(100,100,400,400);
      ui->setupUi(this);
-     show();
      QObject::connect(ui->end_of_bying, &QPushButton::clicked, this, &Store::buy_end);
      QObject::connect(ui->listWidget, &QListWidget::itemClicked, this, &Store::stack_up);
-
      QListWidget * lists=ui->listWidget;
+     ui->listWidget->setItemDelegate(new ListDelegate(ui->listWidget));
+     printBooks(ui->listWidget);
+        Stack* stack=new Stack();
+        QEventLoop a;
+        QObject::connect(ui->end_of_bying, &QPushButton::clicked, &a, &QEventLoop::quit);
 
-     printBooks(lists);
-     emit turn_up();
-
-        Stack* stk= new Stack();
-
-        while (book_vec.size()!=0)
-        {
-            stk->push(book_vec[0]);
-            book_vec.pop_front();
-        }
 
           if (checkBox->isChecked())
           {
-               Customer custom(name, turn, stk, 1);
-               man.push(&custom);
+               qDebug()<<"add cus"<<stack->size();
+               Customer* custom=new Customer(name, turn, stack, 1);
+               man.push(custom);
+               emit man_added();
           }
 
           else if (checkBox2->isChecked())
           {
-
-               Customer custom (name, turn, stk, 0);
-               women.push(&custom);
+               Customer* custom =new Customer(name, turn, stack, 0);
+               women.push(custom);
+               emit women_added();
           }
-    int turn=this->latest_turn;
 
-    show();
+         move(QApplication::activeWindow()->x(), QApplication::activeWindow()->y());
+         show();
+         emit turn_up();
+         a.exec();
 
-    emit turn_up();
-
-
-        //Customer custom (name, turn, stk);
+         while (book_vec.size()!=0)
+         {
+             stack->push(book_vec[0]);
+             book_vec.pop_front();
+         }
+         //QObject::disconnect(ui->end_of_bying, &QPushButton::clicked, this, &Store::buy_end);
+         //QObject::disconnect(ui->listWidget, &QListWidget::itemClicked, this, &Store::stack_up);
 
     }
 }
@@ -131,11 +126,12 @@ void Store::addBook()
     QString book_price;
     QString date_publish;
 
+    int response;
     while (1)
     {
         flag=true;
 
-        int response = dialog.exec();
+        response = dialog.exec();
         if( response == QDialog::Accepted)
         {
              book_name=bookname.text();
@@ -157,7 +153,7 @@ void Store::addBook()
             break;
     }
 
-    if (flag==false)
+    if (flag==true && response == QDialog::Accepted)
     {
         int prc=book_price.toInt();
         int date=date_publish.toInt();
@@ -168,6 +164,9 @@ void Store::addBook()
     }
 
     emit bookAdded();
+
+    if (response == QDialog::Accepted)
+        addBook();
 
 }
 
@@ -233,4 +232,45 @@ void Store::buy_end()
 void Store::printBooks(QListWidget* bookList)
 {
     books.showList(bookList);
+}
+
+void Store::sell_book()
+{
+    if (!man.size() && !women.size())
+    {
+        return;
+    }
+
+    if(gender && man.size()==0)
+    {
+        gender=false;
+        emit delete_women();
+        return;
+    }
+
+    if(gender==0 && women.size()==0)
+    {
+        gender=true;
+        emit delete_men();
+        return ;
+    }
+
+    if (gender)
+    {
+        emit delete_men();
+    }
+
+    else
+        emit delete_women();
+}
+
+
+Queue Store::get_men()
+{
+    return man;
+}
+
+Queue Store::get_women()
+{
+    return women;
 }

@@ -19,6 +19,7 @@ class Queue
 public:
     Queue();
     void push(Customer* customer);
+    QString get_top_name();
     Customer pop();
     int size();
 

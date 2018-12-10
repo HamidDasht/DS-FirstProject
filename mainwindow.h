@@ -11,6 +11,8 @@
 #include <QCheckBox>
 #include <QDialogButtonBox>
 #include <listdelegate.h>
+#include <QVector>
+#include <QMessageBox>
 
 
 namespace Ui {
@@ -35,6 +37,11 @@ private:
     public slots:
         void turns_up();
         void book_up();
+        void add_man();
+        void add_women();
+        void work_table();
+        void men_delete();
+        void women_delete();
 };
 
 #endif // MAINWINDOW_H
