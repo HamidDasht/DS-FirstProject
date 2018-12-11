@@ -22,7 +22,6 @@ public:
     QString get_top_name();
     Customer pop();
     int size();
-
 };
 
 #endif // QUEUE_H

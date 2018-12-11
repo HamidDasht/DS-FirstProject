@@ -93,12 +93,11 @@ void MainWindow::men_delete()
     }
 
     QMessageBox* msgBox = new QMessageBox();
-    QString matn = "";
+    QString matn="turn: "+QString::number(store.latest_turn)+"\n";
     int sum=0;
 
     while (str.size())
     {
-        matn+="turn: "+QString::number(store.latest_turn);
         matn+="\n+ ";
         matn+=str.back();
         matn+="    ";
@@ -113,7 +112,7 @@ void MainWindow::men_delete()
     }
 
     msgBox->setText(matn);
-    msgBox->setInformativeText("sum: "+QString::number(sum));
+    msgBox->setInformativeText("\nsum: "+QString::number(sum));
 
     msgBox->exec();
 
@@ -137,13 +136,13 @@ void MainWindow::women_delete()
     }
 
     QMessageBox* msgBox = new QMessageBox();
-    QString matn = "";
+    QString matn="turn: "+QString::number(store.latest_turn)+"\n";
 
     int sum=0;
 
     while (str.size())
     {
-        matn+="turn : "+QString::number(store.latest_turn);
+        //matn+="turn : "+QString::number(store.latest_turn);
         matn+="\n+ ";
         matn+=str.back();
         matn+="    ";
@@ -157,7 +156,7 @@ void MainWindow::women_delete()
     }
 
     msgBox->setText(matn);
-    msgBox->setInformativeText("sum : "+QString::number(sum));
+    msgBox->setInformativeText("\nsum : "+QString::number(sum));
 
     msgBox->exec();
 

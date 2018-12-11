@@ -55,7 +55,6 @@ public:
     Queue man;
     Queue women;
 
-
 private:
     void deleteBook(QString name);
     LinkedList books;

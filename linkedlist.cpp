@@ -8,18 +8,6 @@ LinkedList::LinkedList()
     size = 0;
 }
 
-LinkedList::LinkedList(const LinkedList& copy)
-{
-    this->size = copy.size;
-    this->tail = new node(Book("","",-1,0));
-    node* temp;
-    for (node * i = copy.tail->next->next; i != copy.tail->next; i = i->next)
-    {
-        temp = tail;
-        tail = new node(i->book);
-        temp->next = tail;
-    }
-}
 
 Book LinkedList::deleteBook(QString name)
 {
