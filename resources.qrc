@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/BackGround">
+        <file>BG_MainWindow.jpg</file>
+    </qresource>
+    <qresource prefix="/Icons">
+        <file>WorkTable.png</file>
+        <file>WorkTable.jpg</file>
+    </qresource>
+</RCC>

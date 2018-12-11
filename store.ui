@@ -11,14 +11,38 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Book Store - Add Customer</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">QPushButton
+{
+	width: 80px;
+	height: 30px;
+	color: white;
+	background-color: #27a9e3;
+	border-width: 0px;
+	border-radius: 3px;
+}
+
+
+
+QPushButton:hover
+{
+	background-color: #50a947;
+}
+
+QPushButton:pressed
+{
+	background-color: #dcde1b;
+	color: black;
+}</string>
+   </property>
    <widget class="QListWidget" name="listWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>30</y>
+      <y>60</y>
       <width>371</width>
       <height>591</height>
      </rect>
@@ -27,21 +51,21 @@
    <widget class="QPushButton" name="end_of_bying">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>30</y>
+      <x>570</x>
+      <y>40</y>
       <width>93</width>
       <height>41</height>
      </rect>
     </property>
     <property name="text">
-     <string>ok</string>
+     <string>OK</string>
     </property>
    </widget>
    <widget class="QPushButton" name="PopBook">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>90</y>
+      <x>570</x>
+      <y>100</y>
       <width>93</width>
       <height>41</height>
      </rect>
@@ -54,14 +78,51 @@
     <property name="geometry">
      <rect>
       <x>420</x>
-      <y>170</y>
+      <y>200</y>
       <width>421</width>
       <height>451</height>
      </rect>
     </property>
    </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>10</y>
+      <width>161</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Sitka Small</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Available Books</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>150</y>
+      <width>161</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Sitka Small</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Selected Books</string>
+    </property>
+   </widget>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>

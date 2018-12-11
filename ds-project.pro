@@ -52,3 +52,6 @@ HEADERS += \
 FORMS += \
         mainwindow.ui \
     store.ui
+
+RESOURCES += \
+    resources.qrc

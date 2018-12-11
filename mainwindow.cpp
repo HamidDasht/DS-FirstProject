@@ -48,8 +48,7 @@ void MainWindow::turns_up()
 void MainWindow::book_up()
 {
      move(QApplication::activeWindow()->x(), QApplication::activeWindow()->y());
-     show();
-    printBooks();
+     printBooks();
 }
 
 void MainWindow::add_man()
