@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>916</width>
-    <height>645</height>
+    <width>802</width>
+    <height>533</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,9 +18,9 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>30</y>
-      <width>561</width>
-      <height>591</height>
+      <y>20</y>
+      <width>401</width>
+      <height>481</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -29,62 +29,11 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="verticalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>610</x>
-      <y>140</y>
-      <width>291</width>
-      <height>481</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
-      <widget class="QPushButton" name="AddBook">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="text">
-        <string>Add Book</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="AddCustomer">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="text">
-        <string>Add Customer</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="SellBook">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="text">
-        <string>Sell Book</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
    <widget class="QLCDNumber" name="Turns">
     <property name="geometry">
      <rect>
-      <x>790</x>
-      <y>60</y>
+      <x>630</x>
+      <y>30</y>
       <width>91</width>
       <height>51</height>
      </rect>
@@ -93,8 +42,8 @@
    <widget class="QLCDNumber" name="LastTurn">
     <property name="geometry">
      <rect>
-      <x>630</x>
-      <y>60</y>
+      <x>530</x>
+      <y>30</y>
       <width>91</width>
       <height>51</height>
      </rect>
@@ -103,8 +52,8 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>630</x>
-      <y>20</y>
+      <x>530</x>
+      <y>0</y>
       <width>91</width>
       <height>31</height>
      </rect>
@@ -116,14 +65,73 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>800</x>
-      <y>20</y>
+      <x>630</x>
+      <y>0</y>
       <width>81</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
      <string>Turns</string>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="men_queue">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>150</y>
+      <width>171</width>
+      <height>351</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="women_queue">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>150</y>
+      <width>171</width>
+      <height>351</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="table">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>40</y>
+      <width>71</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>table</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>110</y>
+      <width>91</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>man Queue</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>110</y>
+      <width>91</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>women Queue</string>
     </property>
    </widget>
   </widget>

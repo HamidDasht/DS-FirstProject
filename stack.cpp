@@ -28,7 +28,7 @@ void Stack::push(Book* book)
 
 Book Stack::pop()
 {
-    Book temp=*(top->book);
+    Book* temp=top->book;
 
     if (stack_size==1)
     {
@@ -45,7 +45,7 @@ Book Stack::pop()
 
     stack_size--;
 
-    return temp;
+    return Book(temp->name, temp->writer, temp->date, temp->price);
 }
 
 int Stack::size()

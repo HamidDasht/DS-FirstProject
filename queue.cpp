@@ -30,18 +30,23 @@ void Queue::push(Customer* customer)
        queue_size++;
 }
 
+QString Queue::get_top_name()
+{
+    return rear->customer->name;
+}
+
 Customer Queue::pop()
 {
-    Customer temp=*(front->customer);
+    Customer* temp=front->customer;
     element* tmp=front;
     front=front->next;
+    queue_size--;
     delete tmp;
 
-    return temp;
+    return Customer(temp->name, temp->turn, temp->books, temp->gender);
 }
 
 int Queue::size()
 {
     return queue_size;
 }
-
