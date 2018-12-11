@@ -55,12 +55,14 @@ public:
     Queue man;
     Queue women;
 
+
 private:
     void deleteBook(QString name);
     LinkedList books;
   //  Queue man;
   //  Queue women;
     QVector <Book*> book_vec;
+    void popBook();
 
 
     Ui::Store* ui;

@@ -22,6 +22,7 @@ class LinkedList
 {
 public:
     LinkedList();
+    LinkedList(const LinkedList& copy);
     void insertBook(Book book);
     Book deleteBook(QString name);
     friend QDataStream& operator<<(QDataStream& stream, const LinkedList* list);

@@ -55,18 +55,20 @@ void Store::addCustomer()
     if (response==QDialog::Accepted)
     {
 
-     int turn=this->latest_turn;
-     setGeometry(100,100,400,400);
-     ui->setupUi(this);
-     QObject::connect(ui->end_of_bying, &QPushButton::clicked, this, &Store::buy_end);
-     QObject::connect(ui->listWidget, &QListWidget::itemClicked, this, &Store::stack_up);
-     QListWidget * lists=ui->listWidget;
-     ui->listWidget->setItemDelegate(new ListDelegate(ui->listWidget));
-     printBooks(ui->listWidget);
+        int turn=this->latest_turn;
+        setGeometry(100,100,400,400);
+        ui->setupUi(this);
+        QObject::connect(ui->end_of_bying, &QPushButton::clicked, this, &Store::buy_end);
+        QObject::connect(ui->listWidget, &QListWidget::itemClicked, this, &Store::stack_up);
+        QListWidget * lists=ui->listWidget;
+        ui->listWidget->setItemDelegate(new ListDelegate(ui->listWidget));
+
+        printBooks(ui->listWidget);
         Stack* stack=new Stack();
         QEventLoop a;
-        QObject::connect(ui->end_of_bying, &QPushButton::clicked, &a, &QEventLoop::quit);
 
+        QObject::connect(ui->end_of_bying, &QPushButton::clicked, &a, &QEventLoop::quit);
+        QObject::connect(ui->PopBook, &QPushButton::clicked, this, &Store::popBook);
 
           if (checkBox->isChecked())
           {
@@ -93,8 +95,6 @@ void Store::addCustomer()
              stack->push(book_vec[0]);
              book_vec.pop_front();
          }
-         //QObject::disconnect(ui->end_of_bying, &QPushButton::clicked, this, &Store::buy_end);
-         //QObject::disconnect(ui->listWidget, &QListWidget::itemClicked, this, &Store::stack_up);
 
     }
 }
@@ -213,6 +213,7 @@ void Store::stack_up(QListWidgetItem *item)
     BookItem * book= static_cast <BookItem*> (item);
     Book* temp= new Book(book->get_name(), book->get_writer(), book->get_date(), book->get_price());
     book_vec.push_back(temp);
+    ui->CustomerStack->addItem(temp->name); ///
     delete item;
 }
 
@@ -236,22 +237,15 @@ void Store::printBooks(QListWidget* bookList)
 
 void Store::sell_book()
 {
-    if (!man.size() && !women.size())
-    {
-        return;
-    }
-
     if(gender && man.size()==0)
     {
         gender=false;
-        emit delete_women();
         return;
     }
 
     if(gender==0 && women.size()==0)
     {
         gender=true;
-        emit delete_men();
         return ;
     }
 
@@ -273,4 +267,20 @@ Queue Store::get_men()
 Queue Store::get_women()
 {
     return women;
+}
+
+void Store::popBook()
+{
+    if (book_vec.size() == 0)
+        return;
+
+    Book* temp = book_vec.first();
+    book_vec.pop_front();
+    qDebug() << temp->name;
+    QList<QListWidgetItem*> a = ui->CustomerStack->findItems(temp->name, Qt::MatchExactly);
+    //qDebug() << a.size();
+    //ui->CustomerStack->removeItemWidget(a.first());
+    if (a.size() > 0)
+        delete a.at(0);
+  //  ui->listWidget->addItem(new BookItem)
 }
